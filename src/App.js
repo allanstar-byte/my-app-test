@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Flowers from './pages/Flowers';
+import Gallery from './components/Gallery';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/flowers" component={Flowers} />
+            <Route path="/Gallery" component={Gallery} />
           </Switch>
         </div>
         <Footer />

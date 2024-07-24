@@ -63,7 +63,7 @@ const About = () => {
       <Section>
         <SectionTitle>Our Story</SectionTitle>
         <SectionContent>
-          Welcome to <Highlight>Flower Farm</Highlight>, where our love for flowers blossomed into a thriving business.
+          Welcome to <Highlight>Rift Valley Roses</Highlight>, where our love for flowers blossomed into a thriving business.
           Established in 2010 in the picturesque fields of Nairobi, Kenya, our journey began with a passion for
           cultivating the most beautiful and diverse range of flowers. Over the years, we have grown from a small family
           farm to a leading supplier of high-quality flowers, renowned for their vibrant colors and exceptional freshness.

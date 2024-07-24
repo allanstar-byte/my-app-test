@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Lightbox from './Lightbox';
 
 const GalleryContainer = styled.div`
   padding: 40px 20px;
@@ -7,41 +8,78 @@ const GalleryContainer = styled.div`
   margin: auto;
 `;
 
-const GalleryTitle = styled.h2`
+const GalleryTitle = styled.h1`
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
   color: #333;
 `;
 
-const GalleryGrid = styled.div`
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 `;
 
-const GalleryImage = styled.img`
-  width: 100%;
-  height: auto;
-  display: block;
+const ImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 `;
 
-const Gallery = ({ images }) => {
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Gallery = () => {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  const images = [
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+	"https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400",
+    "https://via.placeholder.com/600x400"
+  ];
+
+  const openLightbox = (src) => {
+    setLightboxImage(src);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+  };
+
   return (
     <GalleryContainer>
       <GalleryTitle>Our Flower Gallery</GalleryTitle>
-      <GalleryGrid>
-        {images.map((image, index) => (
-          <GalleryImage key={index} src={image.src} alt={image.alt} />
+      <Grid>
+        {images.map((src, index) => (
+          <ImageWrapper key={index} onClick={() => openLightbox(src)}>
+            <Image src={src} alt={`Flower ${index + 1}`} />
+          </ImageWrapper>
         ))}
-      </GalleryGrid>
+      </Grid>
+      {lightboxImage && (
+        <Lightbox imageSrc={lightboxImage} onClose={closeLightbox} />
+      )}
     </GalleryContainer>
   );
 };
