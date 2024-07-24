@@ -150,7 +150,7 @@ const PartnersScroller = styled.div`
   overflow-x: auto;
   white-space: nowrap;
   padding: 10px 0;
-  animation: scroll 30s linear infinite;
+  animation: scroll 15s linear infinite;
 
   &::-webkit-scrollbar {
     display: none;
@@ -170,7 +170,7 @@ const PartnerLogo = styled.img`
   height: 100px;
   width: auto;
   margin: 0 20px;
-  transition: transform 0.3s;
+  transition: transform 0.1s;
 
   &:hover {
     transform: scale(1.1);
@@ -196,7 +196,7 @@ const CallToActionButton = styled(Link)`
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.1s;
 
   &:hover {
     background-color: #f2f2f2;

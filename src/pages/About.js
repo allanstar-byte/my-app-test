@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Map from './Map';
 
 const AboutContainer = styled.div`
   padding: 40px 20px;
@@ -99,6 +100,10 @@ const About = () => {
         </SectionContent>
       </Section>
       <Image src="https://via.placeholder.com/600" alt="Our Team" />
+      <Section>
+        <SectionTitle>Find Us</SectionTitle>
+        <Map />
+      </Section>
     </AboutContainer>
   );
 };

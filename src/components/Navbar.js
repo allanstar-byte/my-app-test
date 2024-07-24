@@ -1,112 +1,106 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
 const NavbarContainer = styled.nav`
-  background-color: #333;
-  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
+  z-index: 1000; /* Ensure it stays above other elements */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
-const Logo = styled(Link)`
-  color: #fff;
-  font-size: 1.8rem;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-`;
-
-const MenuIcon = styled.div`
-  display: none;
-  cursor: pointer;
+const Logo = styled.div`
   font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+`;
 
+const NavLinks = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  &:hover {
+    color: #ff6347;
+  }
+`;
+
+const BurgerIcon = styled.div`
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  
   @media (max-width: 768px) {
     display: block;
   }
 `;
 
-const Menu = styled.ul`
-  list-style: none;
-  display: flex;
-  margin: 0;
-
-  @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #333;
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
-  }
+const DropdownMenu = styled.div`
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 50px; /* Adjust based on Navbar height */
+  right: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it stays above other elements */
 `;
 
-const MenuItem = styled.li`
-  margin: 0 15px;
-  position: relative;
-
-  @media (max-width: 768px) {
-    margin: 15px 0;
-  }
-`;
-
-const MenuLink = styled(Link)`
-  color: #fff;
+const DropdownLink = styled(Link)`
   text-decoration: none;
-  font-size: 1rem;
-  padding: 10px 15px;
+  color: #333;
+  padding: 10px 20px;
   display: block;
-  transition: color 0.3s, background-color 0.3s;
-  border-radius: 4px;
-
   &:hover {
-    background-color: #ff6347;
-    color: #fff;
+    background-color: #f5f5f5;
   }
 `;
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
   };
 
   return (
-    <NavbarContainer>
-      <Logo to="/">Flower Farm</Logo>
-      <MenuIcon onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </MenuIcon>
-      <Menu isOpen={isOpen}>
-        <MenuItem>
-          <MenuLink to="/">Home</MenuLink>
-        </MenuItem>
-        <MenuItem>
-          <MenuLink to="/about">About</MenuLink>
-        </MenuItem>
-        <MenuItem>
-          <MenuLink to="/contact">Contact</MenuLink>
-        </MenuItem>
-		<MenuItem>
-          <MenuLink to="/Flowers">Flowers We Grow</MenuLink>
-        </MenuItem>
-      </Menu>
-    </NavbarContainer>
+    <>
+      <NavbarContainer>
+        <Logo>Flower Farm</Logo>
+        <BurgerIcon onClick={toggleDropdown}>
+          {/* &#9776; Unicode for hamburger icon */}
+        </BurgerIcon>
+        <NavLinks>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/flowers">Flowers</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </NavLinks>
+        {isDropdownOpen && (
+          <DropdownMenu>
+            <DropdownLink to="/">Home</DropdownLink>
+            <DropdownLink to="/about">About</DropdownLink>
+            <DropdownLink to="/flowers">Flowers</DropdownLink>
+            <DropdownLink to="/contact">Contact</DropdownLink>
+          </DropdownMenu>
+        )}
+      </NavbarContainer>
+      {/* Placeholder to ensure content doesn't overlap the Navbar */}
+      <div style={{ height: '60px' }} />
+    </>
   );
 };
 
-
 export default Navbar;
-
