@@ -87,6 +87,7 @@ const Navbar = () => {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/flowers">Flowers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
+		  <NavLink to="/Gallery">Gallery</NavLink>
         </NavLinks>
         {isDropdownOpen && (
           <DropdownMenu>
@@ -94,6 +95,7 @@ const Navbar = () => {
             <DropdownLink to="/about">About</DropdownLink>
             <DropdownLink to="/flowers">Flowers</DropdownLink>
             <DropdownLink to="/contact">Contact</DropdownLink>
+			<DropdownLink to="/Gallery">Gallery</DropdownLink>
           </DropdownMenu>
         )}
       </NavbarContainer>
