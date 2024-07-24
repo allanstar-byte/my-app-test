@@ -99,9 +99,14 @@ const Navbar = () => {
         <MenuItem>
           <MenuLink to="/contact">Contact</MenuLink>
         </MenuItem>
+		<MenuItem>
+          <MenuLink to="/Flowers">Flowers We Grow</MenuLink>
+        </MenuItem>
       </Menu>
     </NavbarContainer>
   );
 };
 
+
 export default Navbar;
+

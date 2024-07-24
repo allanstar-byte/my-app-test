@@ -134,7 +134,7 @@ const Footer = () => {
         </NewsletterSection>
       </FooterSection>
       <FooterBottom>
-        &copy; {new Date().getFullYear()} Flower Farm. All rights reserved.
+        &copy; {new Date().getFullYear()} Flower Farm | All rights reserved.
       </FooterBottom>
     </FooterContainer>
   );

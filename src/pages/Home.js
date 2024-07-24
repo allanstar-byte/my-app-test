@@ -11,7 +11,7 @@ const HomeContainer = styled.div`
 const HeroSection = styled.section`
   background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
   color: #fff;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
