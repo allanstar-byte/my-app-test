@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const HomeContainer = styled.div`
   font-family: 'Arial', sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  overflow-x: hidden;
 `;
 
 const HeroSection = styled.section`
@@ -17,8 +16,6 @@ const HeroSection = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 `;
 
 const HeroTitle = styled.h1`
@@ -44,7 +41,7 @@ const HeroButton = styled(Link)`
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.3s;
-  
+
   &:hover {
     background-color: #e5533e;
     transform: scale(1.05);
@@ -68,10 +65,8 @@ const SectionContent = styled.p`
   font-size: 1.15rem;
   line-height: 1.8;
   color: #555;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 const FeaturedProducts = styled.div`
@@ -135,8 +130,6 @@ const PartnersSection = styled.section`
   padding: 80px 20px;
   background-color: #fff;
   text-align: center;
-  overflow: hidden;
-  position: relative;
 `;
 
 const PartnersTitle = styled.h2`
@@ -147,33 +140,19 @@ const PartnersTitle = styled.h2`
 
 const PartnersScroller = styled.div`
   display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 10px 0;
-  animation: scroll 15s linear infinite;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
 `;
 
 const PartnerLogo = styled.img`
-  height: 100px;
-  width: auto;
-  margin: 0 20px;
-  transition: transform 0.1s;
+  height: 80px; /* Adjusted height for a sleeker look */
+  margin: 0 30px; /* Increased margin for better spacing */
+  transition: transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
 
   &:hover {
     transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Added shadow on hover */
   }
 `;
 
@@ -215,9 +194,7 @@ const Home = () => {
       <Section>
         <SectionTitle>About Us</SectionTitle>
         <SectionContent>
-          At Flower Farm, we are passionate about bringing the finest flowers to your home. Established in 2010, our
-          farm has been dedicated to growing a diverse range of beautiful blooms, all cultivated with care and attention.
-          Discover our story and learn more about our mission to spread joy through flowers.
+          At Flower Farm, we are passionate about bringing the finest flowers to your home. Established in 2010, our farm has been dedicated to growing a diverse range of beautiful blooms, all cultivated with care and attention. Discover our story and learn more about our mission to spread joy through flowers.
         </SectionContent>
         <HeroButton to="/about">Learn More</HeroButton>
       </Section>
@@ -226,17 +203,13 @@ const Home = () => {
         <ProductCard>
           <ProductImage src="https://via.placeholder.com/300x200" alt="Elegant Roses" />
           <ProductTitle>Elegant Roses</ProductTitle>
-          <ProductDescription>
-            A bouquet of premium roses, perfect for any occasion.
-          </ProductDescription>
+          <ProductDescription>A bouquet of premium roses, perfect for any occasion.</ProductDescription>
           <ProductButton to="/contact">Order Now</ProductButton>
         </ProductCard>
         <ProductCard>
           <ProductImage src="https://via.placeholder.com/300x200" alt="Vibrant Lilies" />
           <ProductTitle>Vibrant Lilies</ProductTitle>
-          <ProductDescription>
-            Bright and colorful lilies to brighten up your day.
-          </ProductDescription>
+          <ProductDescription>Bright and colorful lilies to brighten up your day.</ProductDescription>
           <ProductButton to="/contact">Order Now</ProductButton>
         </ProductCard>
       </FeaturedProducts>
@@ -250,7 +223,6 @@ const Home = () => {
           <PartnerLogo src="https://via.placeholder.com/150x100" alt="Partner 4" />
           <PartnerLogo src="https://via.placeholder.com/150x100" alt="Partner 5" />
           <PartnerLogo src="https://via.placeholder.com/150x100" alt="Partner 6" />
-          {/* Repeat logos as needed for smooth scrolling */}
         </PartnersScroller>
       </PartnersSection>
 

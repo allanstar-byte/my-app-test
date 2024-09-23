@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
-  background-color: #333;
+  background-color: #1a1a1a;
   color: #fff;
   padding: 40px 20px;
   text-align: center;
@@ -17,9 +17,9 @@ const FooterSection = styled.div`
 `;
 
 const FooterTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #fff;
+  ${'' /* color: #ff6347; */}
 `;
 
 const FooterLinks = styled.div`
@@ -78,6 +78,12 @@ const NewsletterInput = styled.input`
   border-radius: 5px;
   margin-right: 10px;
   flex: 1;
+  background-color: #333;
+  color: #fff;
+
+  &::placeholder {
+    color: #aaa;
+  }
 `;
 
 const NewsletterButton = styled.button`
@@ -105,7 +111,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterSection>
-        <FooterTitle>Flower Farm</FooterTitle>
+        <FooterTitle>Rift Valley Roses</FooterTitle>
         <FooterLinks>
           <FooterLink to="/">Home</FooterLink>
           <FooterLink to="/about">About</FooterLink>
@@ -128,13 +134,13 @@ const Footer = () => {
         <NewsletterSection>
           <NewsletterTitle>Subscribe to Our Newsletter</NewsletterTitle>
           <NewsletterForm>
-            <NewsletterInput type="email" placeholder="Your email address" />
+            <NewsletterInput type="email" placeholder="Your email address" required />
             <NewsletterButton type="submit">Subscribe</NewsletterButton>
           </NewsletterForm>
         </NewsletterSection>
       </FooterSection>
       <FooterBottom>
-        &copy; {new Date().getFullYear()} Flower Farm | All rights reserved.
+        &copy; {new Date().getFullYear()} Rift Valley Roses | All rights reserved.
       </FooterBottom>
     </FooterContainer>
   );

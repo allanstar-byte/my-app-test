@@ -69,7 +69,7 @@ const Gallery = () => {
 
   return (
     <GalleryContainer>
-      <GalleryTitle>Our Flower Gallery</GalleryTitle>
+      <GalleryTitle>Our Gallery</GalleryTitle>
       <Grid>
         {images.map((src, index) => (
           <ImageWrapper key={index} onClick={() => openLightbox(src)}>

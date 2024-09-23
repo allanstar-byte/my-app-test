@@ -106,7 +106,7 @@ const Contact = () => {
         <SubmitButton type="submit">Send Message</SubmitButton>
       </ContactForm>
       <Address>
-        <p>Flower Farm</p>
+        <p>Rift Valley Roses</p>
         <p>123 Blossom Lane</p>
         <p>Nairobi, Kenya</p>
         <p>Email: info@flowerfarm.com</p>
